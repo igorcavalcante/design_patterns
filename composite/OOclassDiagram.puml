@@ -1,0 +1,20 @@
+@startuml
+!theme blueprint
+abstract class Item {
+    {abstract} Currency Price()
+}
+abstract class ItemComposite extends Item {
+    Items: List<Item>
+    void addtreaTment(t Treatment)
+    void removeTreatment(t Treatment)
+    Currency price()
+}
+class Treatment extends Item {
+    Currency price()
+}
+class Signature extends Item {
+    Currency price()
+}
+class Lens extends ItemComposite
+class Frame extends ItemComposite
+@enduml

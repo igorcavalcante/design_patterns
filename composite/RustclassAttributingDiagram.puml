@@ -1,0 +1,34 @@
+@startuml
+!theme blueprint
+class Item <<trait>> {
+    {abstract} Currency Price()
+}
+
+class ItemComposite implements Item {
+    items Vec<Item>
+    void add_item(t Item)
+    void remove_item(t Item)
+    Currency Price()
+}
+
+class Lens implements Item {
+    Currency Price()
+}
+
+class Frame implements Item {
+    Currency Price()
+}
+Lens *-- ItemComposite
+Frame *-- ItemComposite
+
+class Treatment implements Item {
+    Currency Price()
+}
+
+class Signature implements Item {
+    Currency Price()
+}
+
+hide <<trait>> circle
+hide <<trait>> attributes
+@enduml

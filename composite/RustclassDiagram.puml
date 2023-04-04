@@ -1,0 +1,28 @@
+@startuml
+!theme blueprint
+interface Item <<trait>> {
+    {abstract} Currency Price()
+}
+interface ItemComposite <<trait>> extends Item {
+    void add_treatment(t Treatment)
+    void remove_treatment(t Treatment)
+    Currency Price()
+}
+class Treatment implements Item {
+    Currency Price()
+}
+class Signature implements Item {
+    Currency Price()
+}
+class Lens implements ItemComposite {
+    Items List<Item>
+}
+class Frame implements ItemComposite {
+    Items List<Item>
+}
+
+hide <<trait>> circle
+hide <<trait>> attributes
+hide Lens members
+hide Frame members
+@enduml
